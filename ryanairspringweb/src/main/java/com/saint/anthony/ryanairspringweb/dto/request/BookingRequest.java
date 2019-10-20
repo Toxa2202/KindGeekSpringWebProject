@@ -6,5 +6,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class BookingRequest {
-    private String model;
+    private Long id;
 }

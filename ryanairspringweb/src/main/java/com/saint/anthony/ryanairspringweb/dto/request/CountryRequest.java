@@ -6,5 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CountryRequest {
-    private String model;
+    private String iataCountryCode;
+    private String name;
 }

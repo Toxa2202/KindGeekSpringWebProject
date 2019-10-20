@@ -6,5 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AircraftCreatorRequest {
+    private Long id;
     private String name;
 }

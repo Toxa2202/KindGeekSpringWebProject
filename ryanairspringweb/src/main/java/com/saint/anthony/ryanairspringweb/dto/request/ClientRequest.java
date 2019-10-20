@@ -6,5 +6,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ClientRequest {
-    private String model;
+    private Long id;
+    private String firstName;
+    private String middleName;
+    private String lastName;
+    private Long phone;
+    private String email;
+    private String passport;
 }

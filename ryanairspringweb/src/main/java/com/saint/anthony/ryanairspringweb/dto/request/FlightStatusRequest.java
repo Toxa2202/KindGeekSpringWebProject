@@ -6,5 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class FlightStatusRequest {
-    private String model;
+    private Long id;
+    private String flightStatusName;
+    private String flightStatusDetails;
 }

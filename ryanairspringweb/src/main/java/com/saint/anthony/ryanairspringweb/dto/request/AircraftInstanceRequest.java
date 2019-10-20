@@ -6,5 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AircraftInstanceRequest {
-    private Long aircraftId;
+    private Long id;
+    private Long aircraftInstanceId;
 }

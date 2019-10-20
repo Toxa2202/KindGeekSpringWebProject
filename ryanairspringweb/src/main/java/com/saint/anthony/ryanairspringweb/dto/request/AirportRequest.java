@@ -6,5 +6,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AirportRequest {
-    private String model;
+    private Long id;
+    private String iataAirportCode;
+    private String airportName;
+    private String cityName;
 }

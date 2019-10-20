@@ -6,5 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class FlightSeatPriceRequest {
-    private String model;
+    private Long id;
+    private Long seatId;
+    private Double priceUSD;
 }

@@ -15,11 +15,11 @@ import java.util.stream.Collectors;
 @Service
 public class AircraftService {
     @Autowired
-    private AircraftRepository aircraftRepository;
+    private AircraftRepository repository;
 
     // GET ALL
     public List<AircraftResponse> getAircrafts() {
-        return aircraftRepository.findAll()
+        return repository.findAll()
                 .stream()
                 .map(AircraftResponse::new)
                 .collect(Collectors.toList());
@@ -27,7 +27,7 @@ public class AircraftService {
 
     // GET ONE
     public AircraftResponse getById(Long id) {
-        Optional<Aircraft> aircraftOptional = aircraftRepository.findById(id);
+        Optional<Aircraft> aircraftOptional = repository.findById(id);
         return new AircraftResponse(getEntityObjectById(id));
     }
 
@@ -35,28 +35,28 @@ public class AircraftService {
     public void save(AircraftRequest aircraftRequest) {
         Aircraft aircraft = new Aircraft();
         aircraft.setModel(aircraftRequest.getModel());
-        aircraftRepository.save(aircraft);
+        repository.save(aircraft);
     }
 
     // UPDATE
     public void update(Long id, AircraftRequest aircraftRequest) {
         Aircraft aircraft = getEntityObjectById(id);
         aircraft.setModel(aircraftRequest.getModel());
-        aircraftRepository.save(aircraft);
+        repository.save(aircraft);
     }
 
     // DELETE ONE
     public void delete(Long id) {
         Aircraft aircraft = getEntityObjectById(id);
         if (aircraft.getAircraftInstances().isEmpty()) {
-            aircraftRepository.delete(aircraft);
+            repository.delete(aircraft);
         } else {
             throw new WrongInputDataException("Aircraft with id " + id + " has some instances.");
         }
     }
 
     private Aircraft getEntityObjectById(Long id) {
-        return aircraftRepository.findById(id)
+        return repository.findById(id)
                 .orElseThrow(() -> new WrongInputDataException("Can't find aircraft with id " + id));
     }
 }

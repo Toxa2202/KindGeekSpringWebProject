@@ -6,5 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class TravelClassRequest {
-    private String model;
+    private Long id;
+    private String name;
+    private String description;
 }

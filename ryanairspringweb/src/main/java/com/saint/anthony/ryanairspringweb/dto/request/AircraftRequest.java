@@ -6,5 +6,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AircraftRequest {
+    private Long id;
     private String model;
 }

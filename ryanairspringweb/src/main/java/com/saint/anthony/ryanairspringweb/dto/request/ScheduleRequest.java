@@ -6,5 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ScheduleRequest {
-    private String model;
+    private Long id;
+    private String departureTimeGMT;
+    private String arrivalTimeGMT;
 }

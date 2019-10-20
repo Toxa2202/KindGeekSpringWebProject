@@ -6,5 +6,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class DirectionRequest {
-    private String model;
+    private Long id;
 }

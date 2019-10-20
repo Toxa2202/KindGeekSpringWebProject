@@ -1,6 +1,5 @@
 package com.saint.anthony.ryanairspringweb.service;
 
-import com.saint.anthony.ryanairspringweb.repository.AircraftRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.saint.anthony.ryanairspringweb.dto.request.AircraftCreatorRequest;
@@ -9,8 +8,6 @@ import com.saint.anthony.ryanairspringweb.entity.AircraftCreator;
 import com.saint.anthony.ryanairspringweb.exceptions.WrongInputDataException;
 import com.saint.anthony.ryanairspringweb.repository.AircraftCreatorRepository;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;

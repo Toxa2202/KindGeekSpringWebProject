@@ -50,4 +50,12 @@ public class Country {
     public void setAirports(List<Airport> airports) {
         this.airports = airports;
     }
+
+    public List<Client> getClients() {
+        return clients;
+    }
+
+    public void setClients(List<Client> clients) {
+        this.clients = clients;
+    }
 }

@@ -14,8 +14,8 @@ public class Flight extends IdHolder{
     @OneToMany(mappedBy = "flight")
     private List<FlightSeatPrice> flightSeatPrices = new ArrayList<>();
 
-    @ManyToOne
-    private AircraftInstance aircraftInstance;
+    @OneToMany(mappedBy = "flight")
+    private List<AircraftInstance> aircraftInstances;
 
     public Schedule getScheduleId() {
         return schedule;
@@ -39,5 +39,13 @@ public class Flight extends IdHolder{
 
     public void setFlightStatus(FlightStatus flightStatus) {
         this.flightStatus = flightStatus;
+    }
+
+    public List<AircraftInstance> getAircraftInstances() {
+        return aircraftInstances;
+    }
+
+    public void setAircraftInstances(List<AircraftInstance> aircraftInstances) {
+        this.aircraftInstances = aircraftInstances;
     }
 }

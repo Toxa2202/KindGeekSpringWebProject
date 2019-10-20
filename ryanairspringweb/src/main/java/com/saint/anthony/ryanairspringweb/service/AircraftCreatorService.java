@@ -21,9 +21,6 @@ public class AircraftCreatorService {
     @Autowired
     private AircraftCreatorRepository aircraftCreatorRepository;
 
-    @Autowired
-    private AircraftRepository aircraftRepository;
-
     // GET ALL
     public List<AircraftCreatorResponse> getAircraftCreators() {
         return aircraftCreatorRepository.findAll()

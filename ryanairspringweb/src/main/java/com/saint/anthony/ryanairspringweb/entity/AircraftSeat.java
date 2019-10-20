@@ -42,4 +42,12 @@ public class AircraftSeat extends IdHolder{
     public void setAircraft(Aircraft aircraft) {
         this.aircraft = aircraft;
     }
+
+    public List<FlightSeatPrice> getFlightSeatPrices() {
+        return flightSeatPrices;
+    }
+
+    public void setFlightSeatPrices(List<FlightSeatPrice> flightSeatPrices) {
+        this.flightSeatPrices = flightSeatPrices;
+    }
 }

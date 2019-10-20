@@ -2,15 +2,13 @@ package com.saint.anthony.ryanairspringweb.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class AircraftInstance extends IdHolder{
+    private Long aircraftInstanceId;
 
-    @OneToMany(mappedBy = "aircraftInstance")
-    private List<Flight> flights = new ArrayList<>();
+    @ManyToOne
+    private Flight flight;
 
     @ManyToOne
     private Aircraft aircraft;
@@ -22,5 +20,21 @@ public class AircraftInstance extends IdHolder{
 
     public void setAircraft(Aircraft aircraft) {
         this.aircraft = aircraft;
+    }
+
+    public Long getAircraftInstanceId() {
+        return aircraftInstanceId;
+    }
+
+    public void setAircraftInstanceId(Long aircraftInstanceId) {
+        this.aircraftInstanceId = aircraftInstanceId;
+    }
+
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public void setFlight(Flight flight) {
+        this.flight = flight;
     }
 }

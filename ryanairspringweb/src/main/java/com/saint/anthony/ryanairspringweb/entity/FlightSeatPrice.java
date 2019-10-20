@@ -73,4 +73,12 @@ public class FlightSeatPrice extends IdHolder{
     public void setSeatIds(List<Booking> seatIds) {
         this.seatIds = seatIds;
     }
+
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public void setFlight(Flight flight) {
+        this.flight = flight;
+    }
 }

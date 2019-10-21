@@ -18,7 +18,7 @@ public class AircraftInstanceService {
     private AircraftInstanceRepository repository;
 
     // GET ALL
-    public List<AircraftInstanceResponse> getAircraftInstanses() {
+    public List<AircraftInstanceResponse> getAircraftInstances() {
         return repository.findAll()
                 .stream()
                 .map(AircraftInstanceResponse::new)

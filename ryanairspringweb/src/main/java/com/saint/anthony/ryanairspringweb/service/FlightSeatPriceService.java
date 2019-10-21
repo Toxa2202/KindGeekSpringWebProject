@@ -18,7 +18,7 @@ public class FlightSeatPriceService {
     private FlightSeatPriceRepository repository;
 
     // GET ALL
-    public List<FlightSeatPriceResponse> flightSeatPrices() {
+    public List<FlightSeatPriceResponse> getFlightSeatPrices() {
         return repository.findAll()
                 .stream()
                 .map(FlightSeatPriceResponse::new)

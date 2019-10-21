@@ -18,7 +18,7 @@ public class BookingService {
     private BookingRepository repository;
 
     // GET ALL
-    public List<BookingResponse> bookings() {
+    public List<BookingResponse> getBookings() {
         return repository.findAll()
                 .stream()
                 .map(BookingResponse::new)

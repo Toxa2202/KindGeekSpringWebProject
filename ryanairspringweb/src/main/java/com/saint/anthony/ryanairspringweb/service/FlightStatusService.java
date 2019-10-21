@@ -18,7 +18,7 @@ public class FlightStatusService {
     private FlightStatusRepository repository;
 
     // GET ALL
-    public List<FlightStatusResponse> flightStatuses() {
+    public List<FlightStatusResponse> getFlightStatuses() {
         return repository.findAll()
                 .stream()
                 .map(FlightStatusResponse::new)

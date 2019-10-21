@@ -18,7 +18,7 @@ public class TravelClassService {
     private TravelClassRepository repository;
 
     // GET ALL
-    public List<TravelClassResponse> travelClasses() {
+    public List<TravelClassResponse> getTravelClasses() {
         return repository.findAll()
                 .stream()
                 .map(TravelClassResponse::new)

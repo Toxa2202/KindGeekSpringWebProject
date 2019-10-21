@@ -18,7 +18,7 @@ public class DirectionService {
     private DirectionRepository repository;
 
     // GET ALL
-    public List<DirectionResponse> directions() {
+    public List<DirectionResponse> getDirections() {
         return repository.findAll()
                 .stream()
                 .map(DirectionResponse::new)

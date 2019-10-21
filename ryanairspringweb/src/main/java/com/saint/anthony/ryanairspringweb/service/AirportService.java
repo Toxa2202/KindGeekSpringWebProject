@@ -21,7 +21,7 @@ public class AirportService {
     private AirportRepository repository;
 
     // GET ALL
-    public List<AirportResponse> airports() {
+    public List<AirportResponse> getAirports() {
         return repository.findAll()
                 .stream()
                 .map(AirportResponse::new)

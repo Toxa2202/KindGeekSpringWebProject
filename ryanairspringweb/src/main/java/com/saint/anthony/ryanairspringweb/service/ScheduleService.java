@@ -18,7 +18,7 @@ public class ScheduleService {
     private ScheduleRepository repository;
 
     // GET ALL
-    public List<ScheduleResponse> schedules() {
+    public List<ScheduleResponse> getSchedules() {
         return repository.findAll()
                 .stream()
                 .map(ScheduleResponse::new)

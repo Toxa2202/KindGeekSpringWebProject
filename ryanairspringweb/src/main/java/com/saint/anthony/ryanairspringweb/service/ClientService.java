@@ -18,7 +18,7 @@ public class ClientService {
     private ClientRepository repository;
 
     // GET ALL
-    public List<ClientResponse> clients() {
+    public List<ClientResponse> getClients() {
         return repository.findAll()
                 .stream()
                 .map(ClientResponse::new)

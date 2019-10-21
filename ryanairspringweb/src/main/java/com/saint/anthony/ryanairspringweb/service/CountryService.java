@@ -18,7 +18,7 @@ public class CountryService {
     private CountryRepository repository;
 
     // GET ALL
-    public List<CountryResponse> countries() {
+    public List<CountryResponse> getCountries() {
         return repository.findAll()
                 .stream()
                 .map(CountryResponse::new)

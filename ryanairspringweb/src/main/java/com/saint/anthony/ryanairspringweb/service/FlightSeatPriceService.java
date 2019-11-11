@@ -34,14 +34,14 @@ public class FlightSeatPriceService {
     // SAVE
     public void save(FlightSeatPriceRequest request) {
         FlightSeatPrice flightSeatPrice = new FlightSeatPrice();
-        flightSeatPrice.setId(request.getId());
+        flightSeatPrice.setSeatId(request.getSeatId());
         repository.save(flightSeatPrice);
     }
 
     // UPDATE
     public void update(Long id, FlightSeatPriceRequest request) {
         FlightSeatPrice flightSeatPrice = getEntityObjectById(id);
-        flightSeatPrice.setId(request.getId());
+        flightSeatPrice.setSeatId(request.getSeatId());
         repository.save(flightSeatPrice);
     }
 

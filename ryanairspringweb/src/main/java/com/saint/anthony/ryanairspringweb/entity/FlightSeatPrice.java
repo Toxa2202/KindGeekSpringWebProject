@@ -1,20 +1,35 @@
 package com.saint.anthony.ryanairspringweb.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.SelectBeforeUpdate;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@Setter
+@ToString
+@DynamicUpdate
+@DynamicInsert
+@SelectBeforeUpdate
 @Entity
-public class FlightSeatPrice extends IdHolder{
+public class FlightSeatPrice {
+    @Id
     private Long seatId;
+
     private Double priceUSD;
 
     @ManyToOne
+    @JoinColumn(name = "aircraft_id", nullable = false)
     private AircraftSeat aircraftSeat;
 
     @ManyToOne
+    @JoinColumn(name = "flight_call", nullable = false)
     private Flight flight;
 
     @OneToMany(mappedBy = "flightCall")
@@ -26,59 +41,4 @@ public class FlightSeatPrice extends IdHolder{
     @OneToMany(mappedBy = "seatId")
     private List<Booking> seatIds = new ArrayList<>();
 
-    public AircraftSeat getAircraftSeat() {
-        return aircraftSeat;
-    }
-
-    public void setAircraftSeat(AircraftSeat aircraftSeat) {
-        this.aircraftSeat = aircraftSeat;
-    }
-
-    public Long getSeatId() {
-        return seatId;
-    }
-
-    public void setSeatId(Long seatId) {
-        this.seatId = seatId;
-    }
-
-    public Double getPriceUSD() {
-        return priceUSD;
-    }
-
-    public void setPriceUSD(Double priceUSD) {
-        this.priceUSD = priceUSD;
-    }
-
-    public List<Booking> getFlightCalls() {
-        return flightCalls;
-    }
-
-    public void setFlightCalls(List<Booking> flightCalls) {
-        this.flightCalls = flightCalls;
-    }
-
-    public List<Booking> getAircraftIds() {
-        return aircraftIds;
-    }
-
-    public void setAircraftIds(List<Booking> aircraftIds) {
-        this.aircraftIds = aircraftIds;
-    }
-
-    public List<Booking> getSeatIds() {
-        return seatIds;
-    }
-
-    public void setSeatIds(List<Booking> seatIds) {
-        this.seatIds = seatIds;
-    }
-
-    public Flight getFlight() {
-        return flight;
-    }
-
-    public void setFlight(Flight flight) {
-        this.flight = flight;
-    }
 }

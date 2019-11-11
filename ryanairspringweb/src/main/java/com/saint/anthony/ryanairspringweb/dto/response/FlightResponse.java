@@ -4,28 +4,27 @@ import com.saint.anthony.ryanairspringweb.entity.Flight;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 @Getter
 @Setter
 public class FlightResponse {
     private Long id;
     private String flightStatusName;
-    private List<FlightSeatPriceResponse> flightSeatPriseResponses = new ArrayList<>();
-    private  List<AircraftInstanceResponse> aircraftInstanceResponses = new ArrayList<>();
+    private String departureGMT;
+    private String departureAirport;
+    private String arrivalAirport;
+    private Long aircraftInstanceId;
+//    private List<FlightSeatPriceResponse> flightSeatPriseResponses = new ArrayList<>();
 
     public FlightResponse(Flight flight) {
         this.id = flight.getId();
+        this.departureAirport = flight.getSchedule().getDirection().getDepartIataAirportCode().getName();
+        this.arrivalAirport = flight.getSchedule().getDirection().getArrivalIataAirprotCode().getName();
         this.flightStatusName = flight.getFlightStatus().getFlightStatusName();
-        this.flightSeatPriseResponses = flight.getFlightSeatPrices()
-                .stream()
-                .map(FlightSeatPriceResponse::new)
-                .collect(Collectors.toList());
-        this.aircraftInstanceResponses = flight.getAircraftInstances()
-                .stream()
-                .map(AircraftInstanceResponse::new)
-                .collect(Collectors.toList());
+        this.departureGMT = flight.getSchedule().getDepartureTimeGMT();
+        this.aircraftInstanceId = flight.getAircraftInstance().getAircraftInstanceId();
+//        this.flightSeatPriseResponses = flight.getFlightSeatPrices()
+//                .stream()
+//                .map(FlightSeatPriceResponse::new)
+//                .collect(Collectors.toList());
     }
 }

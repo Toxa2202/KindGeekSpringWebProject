@@ -19,7 +19,7 @@ public class ClientResponse {
     private String email;
     private String passport;
     private String countryName;
-    private List<BookingResponse> bookingResponses = new ArrayList<>();
+//    private List<BookingResponse> bookingResponses = new ArrayList<>();
 
     public ClientResponse(Client client) {
         this.id = client.getId();
@@ -29,9 +29,9 @@ public class ClientResponse {
         this.email = client.getEmail();
         this.passport = client.getPassport();
         this.countryName = client.getCountry().getName();
-        this.bookingResponses = client.getBookings()
-                .stream()
-                .map(BookingResponse::new)
-                .collect(Collectors.toList());
+//        this.bookingResponses = client.getBookings()
+//                .stream()
+//                .map(BookingResponse::new)
+//                .collect(Collectors.toList());
     }
 }

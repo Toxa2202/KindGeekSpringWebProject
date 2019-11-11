@@ -11,7 +11,7 @@ public class AircraftInstanceResponse {
     private String aircraftModel;
 
     public AircraftInstanceResponse(AircraftInstance aircraftInstance) {
-        this.id = aircraftInstance.getId();
+        this.id = aircraftInstance.getAircraftInstanceId();
         this.aircraftModel = aircraftInstance.getAircraft().getModel();
     }
 }

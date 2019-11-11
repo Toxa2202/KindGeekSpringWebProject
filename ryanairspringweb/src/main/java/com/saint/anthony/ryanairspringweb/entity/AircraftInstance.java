@@ -1,40 +1,33 @@
 package com.saint.anthony.ryanairspringweb.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.SelectBeforeUpdate;
 
-@Entity
-public class AircraftInstance extends IdHolder{
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+@Getter @Setter
+@ToString
+@DynamicUpdate
+@DynamicInsert
+@SelectBeforeUpdate
+@Entity(name = "aircraft_instance")
+public class AircraftInstance {
+    @Id
     private Long aircraftInstanceId;
 
-    @ManyToOne
-    private Flight flight;
+    @OneToMany(mappedBy = "aircraftInstance")
+    private List<Flight> flights = new ArrayList<>();
+
 
     @ManyToOne
+    @JoinColumn(name = "aircraft_id", nullable = false)
     private Aircraft aircraft;
 
-
-    public Aircraft getAircraft() {
-        return aircraft;
-    }
-
-    public void setAircraft(Aircraft aircraft) {
-        this.aircraft = aircraft;
-    }
-
-    public Long getAircraftInstanceId() {
-        return aircraftInstanceId;
-    }
-
-    public void setAircraftInstanceId(Long aircraftInstanceId) {
-        this.aircraftInstanceId = aircraftInstanceId;
-    }
-
-    public Flight getFlight() {
-        return flight;
-    }
-
-    public void setFlight(Flight flight) {
-        this.flight = flight;
-    }
 }

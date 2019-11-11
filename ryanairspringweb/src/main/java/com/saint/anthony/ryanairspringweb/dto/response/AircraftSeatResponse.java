@@ -15,15 +15,15 @@ public class AircraftSeatResponse {
     private Long seatId;
     private String aircraftModel;
     private String travelClassName;
-    private List<FlightSeatPriceResponse> flightSeatPriceResponses = new ArrayList<>();
+//    private List<FlightSeatPriceResponse> flightSeatPriceResponses = new ArrayList<>();
 
     public AircraftSeatResponse(AircraftSeat aircraftSeat) {
         this.id = aircraftSeat.getId();
         this.seatId = aircraftSeat.getSeatId();
         this.aircraftModel = aircraftSeat.getAircraft().getModel();
         this.travelClassName = aircraftSeat.getTravelClass().getName();
-        this.flightSeatPriceResponses = aircraftSeat.getFlightSeatPrices()
-                .stream().map(FlightSeatPriceResponse::new)
-                .collect(Collectors.toList());
+//        this.flightSeatPriceResponses = aircraftSeat.getFlightSeatPrices()
+//                .stream().map(FlightSeatPriceResponse::new)
+//                .collect(Collectors.toList());
     }
 }

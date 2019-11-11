@@ -13,19 +13,19 @@ import java.util.stream.Collectors;
 public class CountryResponse {
     private String iataCountryCode;
     private String name;
-    private List<ClientResponse> clientResponses = new ArrayList<>();
-    private List<AirportResponse> airportResponses = new ArrayList<>();
+//    private List<ClientResponse> clientResponses = new ArrayList<>();
+//    private List<AirportResponse> airportResponses = new ArrayList<>();
 
     public CountryResponse(Country country) {
         this.iataCountryCode = country.getIataCountryCode();
         this.name = country.getName();
-        this.clientResponses = country.getClients()
-                .stream()
-                .map(ClientResponse::new)
-                .collect(Collectors.toList());
-        this.airportResponses = country.getAirports()
-                .stream()
-                .map(AirportResponse::new)
-                .collect(Collectors.toList());
+//        this.clientResponses = country.getClients()
+//                .stream()
+//                .map(ClientResponse::new)
+//                .collect(Collectors.toList());
+//        this.airportResponses = country.getAirports()
+//                .stream()
+//                .map(AirportResponse::new)
+//                .collect(Collectors.toList());
     }
 }

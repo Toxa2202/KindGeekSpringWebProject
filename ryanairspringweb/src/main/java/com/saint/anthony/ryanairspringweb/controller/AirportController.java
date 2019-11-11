@@ -23,7 +23,7 @@ public class AirportController {
     }
 
     @GetMapping("/{id}")
-    public AirportResponse getAirport(@PathVariable Long id) {
+    public AirportResponse getAirport(@PathVariable String id) {
         return service.getById(id);
     }
 
@@ -33,12 +33,12 @@ public class AirportController {
     }
 
     @PutMapping("/{id}")
-    public void update(@PathVariable Long id, @RequestBody AirportRequest request) {
+    public void update(@PathVariable String id, @RequestBody AirportRequest request) {
         service.update(id, request);
     }
 
     @DeleteMapping
-    public void delete(@RequestParam Long id) {
+    public void delete(@RequestParam String id) {
         service.delete(id);
     }
 }

@@ -32,10 +32,10 @@ public class AircraftService {
     }
 
     // SAVE
-    public void save(AircraftRequest aircraftRequest) {
+    public AircraftResponse save(AircraftRequest aircraftRequest) {
         Aircraft aircraft = new Aircraft();
         aircraft.setModel(aircraftRequest.getModel());
-        repository.save(aircraft);
+        return new AircraftResponse(repository.save(aircraft));
     }
 
     // UPDATE

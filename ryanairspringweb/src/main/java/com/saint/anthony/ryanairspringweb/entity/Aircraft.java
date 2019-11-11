@@ -1,15 +1,30 @@
 package com.saint.anthony.ryanairspringweb.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.SelectBeforeUpdate;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
+@Getter @Setter
+@ToString
+@DynamicUpdate
+@DynamicInsert
+@SelectBeforeUpdate
 @Entity
 public class Aircraft extends IdHolder{
 
+    @Column(unique = true)
     private String model;
 
-    @ManyToOne
+    @ManyToOne()//fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "aircraft_creator_id")
     private AircraftCreator aircraftCreator;
 
     @OneToMany(mappedBy = "aircraft")
@@ -18,35 +33,4 @@ public class Aircraft extends IdHolder{
     @OneToMany(mappedBy = "aircraft")
     private List<AircraftSeat> aircraftSeats = new ArrayList<>();
 
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public AircraftCreator getAircraftCreator() {
-        return aircraftCreator;
-    }
-
-    public void setAircraftCreator(AircraftCreator aircraftCreator) {
-        this.aircraftCreator = aircraftCreator;
-    }
-
-    public List<AircraftSeat> getAircraftSeats() {
-        return aircraftSeats;
-    }
-
-    public void setAircraftSeats(List<AircraftSeat> aircraftSeats) {
-        this.aircraftSeats = aircraftSeats;
-    }
-
-    public List<AircraftInstance> getAircraftInstances() {
-        return aircraftInstances;
-    }
-
-    public void setAircraftInstances(List<AircraftInstance> aircraftInstances) {
-        this.aircraftInstances = aircraftInstances;
-    }
 }

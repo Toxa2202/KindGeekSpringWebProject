@@ -48,7 +48,7 @@ public class FlightService {
     // DELETE ONE
     public void delete(Long id) {
         Flight flight = getEntityObjectById(id);
-        if (flight.getAircraftInstances().isEmpty()) {
+        if (flight.getFlightSeatPrices().isEmpty()) {
             repository.delete(flight);
         } else {
             throw new WrongInputDataException("Flight with id " + id + " has some instances.");

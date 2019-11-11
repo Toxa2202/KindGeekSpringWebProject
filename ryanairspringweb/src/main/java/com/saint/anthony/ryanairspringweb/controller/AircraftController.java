@@ -15,27 +15,27 @@ public class AircraftController {
     @Autowired
     private AircraftService service;
 
-    @GetMapping // ALL
+    @GetMapping // GET ALL
     public List<AircraftResponse> getAircrafts() {
         return service.getAircrafts();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}") // GET BY ID
     public AircraftResponse getAircraft(@PathVariable Long id) {
         return service.getById(id);
     }
 
-    @PostMapping // ALL
-    public void create(@RequestBody AircraftRequest request) {
+    @PostMapping // ADD NEW
+    public void save(@RequestBody AircraftRequest request) {
         service.save(request);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}") // UPDATE BY ID
     public void update(@PathVariable Long id, @RequestBody AircraftRequest request) {
         service.update(id, request);
     }
 
-    @DeleteMapping
+    @DeleteMapping // DELETE BY ID
     public void delete(@RequestParam Long id) {
         service.delete(id);
     }

@@ -31,32 +31,33 @@ public class AircraftSeatService {
         return new AircraftSeatResponse(getEntityObjectById(id));
     }
 
-    // SAVE
-    public void save(AircraftSeatRequest request) {
-        AircraftSeat aircraftSeat = new AircraftSeat();
-        aircraftSeat.setId(request.getSeatId());
-        repository.save(aircraftSeat);
-    }
+    // SAVE --> NOT NEED
+//    public void save(AircraftSeatRequest request) {
+//        AircraftSeat aircraftSeat = new AircraftSeat();
+//        aircraftSeat.setId(request.getSeatId());
+//        repository.save(aircraftSeat);
+//    }
 
-    // UPDATE
-    public void update(Long id, AircraftSeatRequest request) {
-        AircraftSeat aircraftSeat = getEntityObjectById(id);
-        aircraftSeat.setId(request.getSeatId());
-        repository.save(aircraftSeat);
-    }
+    // UPDATE --> NOT NEED
+//    public void update(Long id, AircraftSeatRequest request) {
+//        AircraftSeat aircraftSeat = getEntityObjectById(id);
+//        aircraftSeat.setId(request.getSeatId());
+//        repository.save(aircraftSeat);
+//    }
 
-    // DELETE ONE
-    public void delete(Long id) {
-        AircraftSeat aircraftSeat = getEntityObjectById(id);
-        if (aircraftSeat.getAircraft() == null) {
-            repository.delete(aircraftSeat);
-        } else {
-            throw new WrongInputDataException("AircraftSeat with id " + id + " has some instances.");
-        }
-    }
+    // DELETE ONE --> NOT NEED
+//    public void delete(Long id) {
+//        AircraftSeat aircraftSeat = getEntityObjectById(id);
+//        if (aircraftSeat.getAircraft() == null) {
+//            repository.delete(aircraftSeat);
+//        } else {
+//            throw new WrongInputDataException("AircraftSeat with id " + id + " has some instances.");
+//        }
+//    }
 
     private AircraftSeat getEntityObjectById(Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new WrongInputDataException("Can't find aircraftSeat with id " + id));
     }
+
 }

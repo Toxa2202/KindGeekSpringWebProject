@@ -14,15 +14,15 @@ public class FlightStatusResponse {
     private Long id;
     private String flightStatusName;
     private String flightStatusDetails;
-    private List<FlightResponse> flightResponses = new ArrayList<>();
+//    private List<FlightResponse> flightResponses = new ArrayList<>();
 
     public FlightStatusResponse(FlightStatus flightStatus) {
         this.id = flightStatus.getId();
         this.flightStatusName = flightStatus.getFlightStatusName();
         this.flightStatusDetails = flightStatus.getFlightStatusDetails();
-        this.flightResponses = flightStatus.getFlights()
-                .stream()
-                .map(FlightResponse::new)
-                .collect(Collectors.toList());
+//        this.flightResponses = flightStatus.getFlights()
+//                .stream()
+//                .map(FlightResponse::new)
+//                .collect(Collectors.toList());
     }
 }

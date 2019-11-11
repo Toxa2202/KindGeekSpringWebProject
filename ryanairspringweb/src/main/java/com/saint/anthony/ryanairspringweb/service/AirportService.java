@@ -29,7 +29,7 @@ public class AirportService {
     }
 
     // GET ONE
-    public AirportResponse getById(Long id) {
+    public AirportResponse getById(String id) {
         Optional<Airport> airportOptional = repository.findById(id);
         return new AirportResponse(getEntityObjectById(id));
     }
@@ -42,14 +42,14 @@ public class AirportService {
     }
 
     // UPDATE
-    public void update(Long id, AirportRequest request) {
+    public void update(String id, AirportRequest request) {
         Airport airport = getEntityObjectById(id);
-        airport.setId(request.getId());
+        airport.setIataAirportCode(request.getIataAirportCode());
         repository.save(airport);
     }
 
     // DELETE ONE
-    public void delete(Long id) {
+    public void delete(String id) {
         Airport airport = getEntityObjectById(id);
         if (airport.getDepartures().isEmpty()) {
             repository.delete(airport);
@@ -58,7 +58,7 @@ public class AirportService {
         }
     }
 
-    private Airport getEntityObjectById(Long id) {
+    private Airport getEntityObjectById(String id) {
         return repository.findById(id)
                 .orElseThrow(() -> new WrongInputDataException("Can't find airport with id " + id));
     }

@@ -14,15 +14,15 @@ public class TravelClassResponse {
     private Long id;
     private String name;
     private String description;
-    private List<AircraftSeatResponse> aircraftSeatResponses = new ArrayList<>();
+//    private List<AircraftSeatResponse> aircraftSeatResponses = new ArrayList<>();
 
     public TravelClassResponse(TravelClass travelClass) {
         this.id = travelClass.getId();
         this.name = travelClass.getName();
         this.description = travelClass.getDescription();
-        this.aircraftSeatResponses = travelClass.getAircraftSeats()
-                .stream()
-                .map(AircraftSeatResponse::new)
-                .collect(Collectors.toList());
+//        this.aircraftSeatResponses = travelClass.getAircraftSeats()
+//                .stream()
+//                .map(AircraftSeatResponse::new)
+//                .collect(Collectors.toList());
     }
 }

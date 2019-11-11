@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class AircraftCreatorResponse {
     private Long id;
     private String name;
-    private List<AircraftResponse> aircraftResponses = new ArrayList<>();
+    private List<AircraftResponse> aircraftResponses;
 
     public AircraftCreatorResponse(AircraftCreator aircraftCreator) {
         this.id = aircraftCreator.getId();

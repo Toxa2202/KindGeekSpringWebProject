@@ -13,14 +13,14 @@ import java.util.stream.Collectors;
 public class DirectionResponse {
     private String airportName;
     private String airportCity;
-    private List<ScheduleResponse> scheduleResponses = new ArrayList<>();
+//    private List<ScheduleResponse> scheduleResponses = new ArrayList<>();
 
     public DirectionResponse(Direction direction) {
-        this.airportName = direction.getDepartIataAirportCode().getAirportName();
-        this.airportCity = direction.getDepartIataAirportCode().getCityName();
-        this.scheduleResponses = direction.getSchedules()
-                .stream()
-                .map(ScheduleResponse::new)
-                .collect(Collectors.toList());
+        this.airportName = direction.getDepartIataAirportCode().getName();
+        this.airportCity = direction.getDepartIataAirportCode().getCity();
+//        this.scheduleResponses = direction.getSchedules()
+//                .stream()
+//                .map(ScheduleResponse::new)
+//                .collect(Collectors.toList());
     }
 }

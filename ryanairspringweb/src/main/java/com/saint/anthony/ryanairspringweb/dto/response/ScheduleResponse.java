@@ -15,16 +15,16 @@ public class ScheduleResponse {
     private String departureTimeGMT;
     private String arrivalTimeGMT;
     private Long directionId;
-    private List<FlightResponse> flightResponses = new ArrayList<>();
+//    private List<FlightResponse> flightResponses = new ArrayList<>();
 
     public ScheduleResponse(Schedule schedule) {
         this.id = schedule.getId();
         this.departureTimeGMT = schedule.getDepartureTimeGMT();
         this.arrivalTimeGMT = schedule.getArrivalTimeGMT();
         this.directionId = schedule.getDirection().getId();
-        this.flightResponses = schedule.getFlights()
-                .stream()
-                .map(FlightResponse::new)
-                .collect(Collectors.toList());
+//        this.flightResponses = schedule.getFlights()
+//                .stream()
+//                .map(FlightResponse::new)
+//                .collect(Collectors.toList());
     }
 }

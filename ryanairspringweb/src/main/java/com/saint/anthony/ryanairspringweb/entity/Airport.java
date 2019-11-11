@@ -1,19 +1,33 @@
 package com.saint.anthony.ryanairspringweb.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.SelectBeforeUpdate;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
+@Getter @Setter
+@ToString
+@DynamicUpdate
+@DynamicInsert
+@SelectBeforeUpdate
 @Entity
-public class Airport extends IdHolder {
+public class Airport {
+    @Id
     private String iataAirportCode;
-    private String airportName;
-    private String cityName;
+
+    private String name;
+    private String city;
 
     @ManyToOne
-    private Country iataCountryCode;
+    @JoinColumn(name = "iata_country_code", nullable = false)
+    private Country country;
 
     @OneToMany(mappedBy = "departIataAirportCode")
     private List<Direction> departures = new ArrayList<>();
@@ -21,51 +35,4 @@ public class Airport extends IdHolder {
     @OneToMany(mappedBy = "arrivalIataAirprotCode")
     private List<Direction> arrivals = new ArrayList<>();
 
-    public String getIataAirportCode() {
-        return iataAirportCode;
-    }
-
-    public void setIataAirportCode(String iataAirportCode) {
-        this.iataAirportCode = iataAirportCode;
-    }
-
-    public String getAirportName() {
-        return airportName;
-    }
-
-    public void setAirportName(String airportName) {
-        this.airportName = airportName;
-    }
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
-    public List<Direction> getDepartures() {
-        return departures;
-    }
-
-    public void setDepartures(List<Direction> directions) {
-        this.departures = directions;
-    }
-
-    public List<Direction> getArrivals() {
-        return arrivals;
-    }
-
-    public void setArrivals(List<Direction> arrivals) {
-        this.arrivals = arrivals;
-    }
-
-    public Country getIataCountryCode() {
-        return iataCountryCode;
-    }
-
-    public void setIataCountryCode(Country iataCountryCode) {
-        this.iataCountryCode = iataCountryCode;
-    }
 }

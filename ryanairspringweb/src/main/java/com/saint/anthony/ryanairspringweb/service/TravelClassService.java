@@ -31,17 +31,18 @@ public class TravelClassService {
         return new TravelClassResponse(getEntityObjectById(id));
     }
 
-    // SAVE
-    public void save(TravelClassRequest request) {
+    // SAVE NEW
+    public TravelClassResponse save(TravelClassRequest request) {
         TravelClass travelClass = new TravelClass();
-        travelClass.setId(request.getId());
-        repository.save(travelClass);
+        travelClass.setName(request.getName());
+        travelClass.setDescription(request.getDescription());
+        return new TravelClassResponse(repository.save(travelClass));
     }
 
     // UPDATE
     public void update(Long id, TravelClassRequest request) {
         TravelClass travelClass = getEntityObjectById(id);
-        travelClass.setId(request.getId());
+        travelClass.setName(request.getName());
         repository.save(travelClass);
     }
 

@@ -2,6 +2,7 @@ package com.saint.anthony.ryanairspringweb.configuration;
 
 import com.google.common.collect.Sets;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -14,6 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
+@ComponentScan("com.saint.anthony.ryanairspringweb.controller")
 public class SwaggerConfig {
 
     @Bean
@@ -35,7 +37,7 @@ public class SwaggerConfig {
                 .version("1.0.0")
                 .license("Apache License Version 2.0")
                 .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0")
-                .contact(new Contact("Test Contact", "http://test.com", "test@test.com"))
+                .contact(new Contact("Anthony Saint", "http://test.com", "svyatoj@gmail.com"))
                 .build();
     }
 }

@@ -1,12 +1,9 @@
 package com.saint.anthony.ryanairspringweb.dto.response;
 
+import com.saint.anthony.ryanairspringweb.entity.Airport;
 import com.saint.anthony.ryanairspringweb.entity.Schedule;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Getter
 @Setter

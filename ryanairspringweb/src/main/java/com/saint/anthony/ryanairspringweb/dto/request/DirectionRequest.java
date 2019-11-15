@@ -7,4 +7,8 @@ import lombok.Setter;
 @Setter
 public class DirectionRequest {
     private Long id;
+    private String departureAirportName;
+    private String departureAirportCity;
+    private String arrivalAirportName;
+    private String arrivalAirportCity;
 }

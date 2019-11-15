@@ -2,10 +2,14 @@ package com.saint.anthony.ryanairspringweb.service;
 
 import com.saint.anthony.ryanairspringweb.dto.request.AircraftSeatRequest;
 import com.saint.anthony.ryanairspringweb.dto.response.AircraftSeatResponse;
+import com.saint.anthony.ryanairspringweb.dto.response.DataResponse;
 import com.saint.anthony.ryanairspringweb.entity.AircraftSeat;
 import com.saint.anthony.ryanairspringweb.exceptions.WrongInputDataException;
 import com.saint.anthony.ryanairspringweb.repository.AircraftSeatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,11 +22,12 @@ public class AircraftSeatService {
     private AircraftSeatRepository repository;
 
     // GET ALL
-    public List<AircraftSeatResponse> aircraftSeats() {
-        return repository.findAll()
-                .stream()
-                .map(AircraftSeatResponse::new)
-                .collect(Collectors.toList());
+    public DataResponse<AircraftSeatResponse> getAllAircraftSeats(Integer page, Integer size) {
+        PageRequest pageRequest = PageRequest.of(page, size);
+        Page<AircraftSeat> aircraftSeatPage = repository.findAll(pageRequest);
+
+        return new DataResponse<>(aircraftSeatPage.getContent().stream().map(AircraftSeatResponse::new)
+                .collect(Collectors.toList()), aircraftSeatPage);
     }
 
     // GET ONE
@@ -30,30 +35,6 @@ public class AircraftSeatService {
         Optional<AircraftSeat> aircraftSeatOptional = repository.findById(id);
         return new AircraftSeatResponse(getEntityObjectById(id));
     }
-
-    // SAVE --> NOT NEED
-//    public void save(AircraftSeatRequest request) {
-//        AircraftSeat aircraftSeat = new AircraftSeat();
-//        aircraftSeat.setId(request.getSeatId());
-//        repository.save(aircraftSeat);
-//    }
-
-    // UPDATE --> NOT NEED
-//    public void update(Long id, AircraftSeatRequest request) {
-//        AircraftSeat aircraftSeat = getEntityObjectById(id);
-//        aircraftSeat.setId(request.getSeatId());
-//        repository.save(aircraftSeat);
-//    }
-
-    // DELETE ONE --> NOT NEED
-//    public void delete(Long id) {
-//        AircraftSeat aircraftSeat = getEntityObjectById(id);
-//        if (aircraftSeat.getAircraft() == null) {
-//            repository.delete(aircraftSeat);
-//        } else {
-//            throw new WrongInputDataException("AircraftSeat with id " + id + " has some instances.");
-//        }
-//    }
 
     private AircraftSeat getEntityObjectById(Long id) {
         return repository.findById(id)

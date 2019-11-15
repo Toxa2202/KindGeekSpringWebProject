@@ -17,7 +17,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $.ajax({
-                url: "http://localhost:8080/aircraft",
+                url: "http://localhost:8080/flightStatus",
                 method: "GET",
                 dataType: "json",
                 success: function (data) {
@@ -25,8 +25,8 @@
                         data: data,
                         columns: [
                             {'data': 'id'},
-                            {'data': 'model'},
-                            {'data': 'aircraftCreatorName'},
+                            {'data': 'flightStatusName'},
+                            {'data': 'flightStatusDetails'},
                         ]
                     })
                 }
@@ -40,13 +40,13 @@
 </head>
 
 <body>
-    <div style="width: 700px; padding: 5px; border: 1px solid black; text-align: center">
+    <div style="width: 800px; padding: 5px; border: 1px solid black; text-align: center">
         <table id="datatable">
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Model</th>
-                    <th>Creator</th>
+                    <th>Flight Status Name</th>
+                    <th>Flight Status Details</th>
                 </tr>
             </thead>
         </table>

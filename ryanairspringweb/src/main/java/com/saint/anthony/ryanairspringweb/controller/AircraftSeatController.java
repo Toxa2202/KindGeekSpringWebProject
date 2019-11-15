@@ -1,9 +1,11 @@
 package com.saint.anthony.ryanairspringweb.controller;
 
-import com.saint.anthony.ryanairspringweb.dto.response.AircraftResponse;
 import com.saint.anthony.ryanairspringweb.dto.response.AircraftSeatResponse;
+import com.saint.anthony.ryanairspringweb.dto.response.DataResponse;
 import com.saint.anthony.ryanairspringweb.service.AircraftSeatService;
+import com.saint.anthony.ryanairspringweb.service.TravelClassService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,9 +17,14 @@ public class AircraftSeatController {
     @Autowired
     private AircraftSeatService  service;
 
-    @GetMapping // ALL
-    public List<AircraftSeatResponse> getAircraftSeats() {
-        return service.aircraftSeats();
+    @Autowired
+    private TravelClassService travelClassService;
+
+    // GET ALL
+    @GetMapping
+    public DataResponse<AircraftSeatResponse> getAll(@RequestParam Integer page,
+                                                     @RequestParam Integer size) {
+        return service.getAllAircraftSeats(page, size);
     }
 
     @GetMapping("/{id}")

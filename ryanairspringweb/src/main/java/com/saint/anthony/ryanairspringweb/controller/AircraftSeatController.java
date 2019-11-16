@@ -32,18 +32,4 @@ public class AircraftSeatController {
         return service.getById(id);
     }
 
-//    @PostMapping // ALL
-//    public void create(@RequestBody AircraftSeatRequest request) {
-//        service.save(request);
-//    }
-
-//    @PutMapping("/{id}")
-//    public void update(@PathVariable Long id, @RequestBody AircraftSeatRequest request) {
-//        service.update(id, request);
-//    }
-//
-//    @DeleteMapping
-//    public void delete(@RequestParam Long id) {
-//        service.delete(id);
-//    }
 }

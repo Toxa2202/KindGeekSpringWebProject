@@ -1,8 +1,6 @@
 package com.saint.anthony.ryanairspringweb.controller;
 
-import com.saint.anthony.ryanairspringweb.dto.request.AircraftRequest;
 import com.saint.anthony.ryanairspringweb.dto.request.AirportRequest;
-import com.saint.anthony.ryanairspringweb.dto.response.AircraftResponse;
 import com.saint.anthony.ryanairspringweb.dto.response.AirportResponse;
 import com.saint.anthony.ryanairspringweb.service.AirportService;
 import org.springframework.beans.factory.annotation.Autowired;

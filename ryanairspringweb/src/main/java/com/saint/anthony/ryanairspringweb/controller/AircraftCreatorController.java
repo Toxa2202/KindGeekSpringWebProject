@@ -19,16 +19,6 @@ public class AircraftCreatorController {
     private AircraftCreatorService airCreatorService;
 
     // GET ALL
-//    @GetMapping
-//    public DataResponse<AircraftCreatorResponse> getAll(@RequestParam Integer page,
-//                                                        @RequestParam Integer size,
-//                                                        @RequestParam String sortBy,
-//                                                        @RequestParam Sort.Direction direction,
-//                                                        @RequestParam(required = false) String name) {
-//        return airCreatorService.getAllAircraftCreators(page, size, sortBy, direction, name);
-//    }
-
-    // GET ALL
     @GetMapping
     public List<AircraftCreatorResponse> getAll() {
         return airCreatorService.getAircraftCreators();
@@ -59,4 +49,3 @@ public class AircraftCreatorController {
     }
 }
 
-// ще 6 занять від 21.10.2019 !!!
